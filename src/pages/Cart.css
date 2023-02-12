@@ -1,0 +1,63 @@
+.Cart {
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+.Carticon {
+    width:100%;
+    height:50px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+.titleCart {
+    width:100%;
+    height:60px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.titleCart  p{
+    font-size:25px;
+    margin-top:5px;
+}
+.CartProduct {
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    justify-content:space-around;
+    align-items:center;
+ 
+    gap:20px;
+    padding-top:10px;
+}
+.Wrapper {
+    width:90%;
+    height:80px;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.Wrapper .img {
+    width:70px;
+    height:60px;
+    border:2px solid black;
+}
+.Wrapper .img img {
+    width:100%;
+    height:100%;
+}
+.Wrapper .ProductName {
+
+}
+.CartForm {
+    width:100%;
+    height:300px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+}
