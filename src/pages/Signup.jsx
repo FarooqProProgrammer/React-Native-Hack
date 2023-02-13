@@ -4,6 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {auth,db} from "../config/db"
 import {setDoc,doc} from "firebase/firestore"
 import {useNavigate} from "react-router-dom"
+import "./Login.css"
 
 function Signup() {
   const [Name,setName] = useState("");
@@ -43,13 +44,13 @@ function Signup() {
     <div className="Login">
                  
                 <div className="Register" style={{display:"flex",flexDirection:"column"}}>
-                        <input type="text" onChange={(e)=> setName(e.target.value)} placeholder="Enter User Name" style={{width:"80%",marginTop: 10,}} />
-                        <input type="text" onChange={(e)=> setContact(e.target.value)} placeholder="Enter Contact" style={{width:"80%",marginTop: 10,}} />
-                        <input type="text" onChange={(e)=> setEmail(e.target.value)} placeholder="Enter Email" style={{width:"80%",marginTop: 10,}} />
-                        <input type="text" onChange={(e)=> setPassword(e.target.value)} placeholder="Enter Password" style={{width:"80%",marginTop: 10,}}/>
+                        <input type="text" className="mb-2 mt-2" onChange={(e)=> setName(e.target.value)} placeholder="Enter User Name" style={{width:"80%",marginTop: 10,}} />
+                        <input type="text" className="mb-2 mt-5" onChange={(e)=> setContact(e.target.value)} placeholder="Enter Contact" style={{width:"80%",marginTop: 10,}} />
+                        <input type="text" className="mb-2 mt-5" onChange={(e)=> setEmail(e.target.value)} placeholder="Enter Email" style={{width:"80%",marginTop: 10,}} />
+                        <input type="text" className="mb-2 mt-5" onChange={(e)=> setPassword(e.target.value)} placeholder="Enter Password" style={{width:"80%",marginTop: 10,}}/>
                         <Link to="/">If you Have Account</Link>
 
-                        <button onClick={AddItem} type="button" class="btn btn-primary mt-2">Register</button>                                        
+                        <button onClick={AddItem} type="button" class="btn btn-primary w-[200px] border-none bg-[#61B846]  mt-2">Register</button>                                        
                 </div>
     </div>
   )
