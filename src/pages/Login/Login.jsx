@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import { auth } from '../../config/db';
 import {Input} from "@mui/material"
+// import {User} from "../../store/userSlice"
 
 function Login() {
   const [Email, setEmail] = useState();

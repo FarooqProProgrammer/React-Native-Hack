@@ -24,23 +24,7 @@ function Cart() {
     const [EmailADD, setFullEmail] = useState();
     const [Phone, setPhone] = useState();
     const [Address, setAddress] = useState();
-
-
-
-    // onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-    //       // User is signed in, see docs for a list of available properties
-    //       // https://firebase.google.com/docs/reference/js/firebase.User
-    //       const uid = user.uid;
-    //       console.log(uid);
-    //       setUser(uid)
-    //       // ...
-    //     } else {
-    //       // User is signed out
-    //       // ...
-    //     }
-    //   })
-
+    const [Quantity,setQuantity] = useState(0);
 
     const DeleteProdu = () => {
         dispatch(add([]))
@@ -84,6 +68,11 @@ function Cart() {
 
         }
     }
+    const addQuantity = (index) =>{
+            setQuantity(Quantity + 1)
+            console.log(dataProducts[index])
+            dataProducts[index].quantity = Quantity
+    }
     return (
         <div className="Login">
 
@@ -97,18 +86,13 @@ function Cart() {
                 </div>
                 <div className="CartProduct">
                     {
-                        dataProducts.map((item) => {
+                        dataProducts.map((item,index) => {
                             return (
                                 <div className="Wrapper">
                                     <div className="img">
                                         <img src={item.Product} />
                                     </div>
                                     <div className="ProductName">{item.name}</div>
-                                    <div className="Counter">
-                                        <span>-</span>
-                                        <span>{0}</span>
-                                        <span>+</span>
-                                    </div>
                                     <div className="Pridce">Pkr {item.ProductPrice}</div>
                                 </div>
                             )

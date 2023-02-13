@@ -14,6 +14,7 @@ function Home() {
     const dispatch = useDispatch();
     const dataProducts = useSelector((state) => state.cart);
     const navigate = useNavigate();
+    const [InputFilter,setInputFilter] = useState([]);
 
     async function getData() {
         const q = query(collection(db, "Product"));
@@ -54,11 +55,11 @@ function Home() {
             </div>
 
             <div className="search">
-                <input type="text" placeholder="Search Product" />
+                <input type="text" placeholder="Search Product" onChange={(e)=> setInputFilter({value:e.target.value,type:"Search"})} />
             </div>
 
             <div className="category w-100 ">
-                <select>
+                <select onChange={(e)=> setInputFilter({value:e.target.value,type:"DropDown"})}>
                     <option>Drink</option>
                     <option>Fast Food</option>
                     <option>Halwa</option>
@@ -67,7 +68,7 @@ function Home() {
             </div>
 
             <div className="ProductCard">
-                {data.map((item) => {
+                {data.filter((item)=> InputFilter.type == "Search" ? item.name.includes(InputFilter.value) : item.category.includes(InputFilter.value)).map((item) => {
                     return (
                         <div className="Product" onClick={() => AddProductDb(item)}>
                             <div className="imageProduct">

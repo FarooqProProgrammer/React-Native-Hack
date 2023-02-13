@@ -1,11 +1,35 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./Admin.css"
 import {AiOutlineLeft,AiOutlineUnorderedList} from "react-icons/ai"
 import Ellipse from "../../assets/Ellipse.png"
 import {useNavigate} from  "react-router-dom"
+import {db} from "../../config/db"
+import { collection,query,getDocs } from "firebase/firestore";
 
 const Admin = () => {
   const navigate = useNavigate();
+  const [data,setData] = useState([]);
+
+  async function dataGet(){
+    const q = query(collection(db, "Product"));
+
+    const querySnapshot = await getDocs(q);
+    const list = []
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log({id:doc.id,...doc.data()});
+        list.push({id:doc.id,...doc.data()})
+    });
+    console.log(data)
+    setData(list)
+
+  }
+
+  React.useEffect(()=>{
+      dataGet()
+  },[])
+
+
   return (
     <div className="Login">
         <div className="Admin">
@@ -21,34 +45,24 @@ const Admin = () => {
                       </div>
             </div>
             <div className="AllProduct">
-                  <div className="ProductOne">
+
+              {
+                data.map((item)=>{
+                  return(
+                    <div className="ProductOne">
                       <div className="Image">
-                        <img src="https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGFwcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60"/>
+                        <img src={item.Product}/>
                       </div>
-                      <p className="ProductTitle">Apple</p>
-                      <p className="ProductKg">Kg</p>
-                      <p className="ProductPrice">12.00</p>
+                      <p className="ProductTitle">{item.name}</p>
+                      <p className="ProductKg">{item.Product_Unit}</p>
+                      <p className="ProductPrice">{item.ProductPrice}</p>
                       
                   </div>
-                  <div className="ProductOne">
-                      <div className="Image">
-                        <img src="https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGFwcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60"/>
-                      </div>
-                      <p className="ProductTitle">Apple</p>
-                      <p className="ProductKg">Kg</p>
-                      <p className="ProductPrice">12.00</p>
-                      
-                  </div>
-                  <div className="ProductOne">
-                      <div className="Image">
-                        <img src="https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGFwcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60"/>
-                      </div>
-                      <p className="ProductTitle">Apple</p>
-                      <p className="ProductKg">Kg</p>
-                      <p className="ProductPrice">12.00</p>
-                      
-                  </div>
+                  )
+                })
+              }
                   
+      
                   
             </div>
 

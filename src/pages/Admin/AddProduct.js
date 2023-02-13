@@ -14,14 +14,17 @@ export default function AddProduct() {
         const [ProductUnit, setProductUnit] = useState();
         const [ProductPrice, setProductPrice] = useState();
         const [ProductDiscr, setProductDiscr] = useState();
+        const [category,setCategory] = useState();
 
         const AddItem = async () => {
+                console.log(category)
                 const docRef = await addDoc(collection(db, "Product"), {
                         name: ProductName,
                         Product: ProductImage,
                         Product_Unit: ProductUnit,
                         ProductPrice: ProductPrice,
-                        Product_Dsce: ProductDiscr
+                        Product_Dsce: ProductDiscr,
+                        category:category
                 });
                 console.log("Document written with ID: ", docRef.id);
 
@@ -55,11 +58,10 @@ export default function AddProduct() {
                                 <input type="text" className="inputName" onChange={(e) => setProductName(e.target.value)} placeholder="Input Name" />
 
                                 <div class="dropDown w-100">
-                                        <select className="drop">
-                                                <option>Food</option>
-                                                <option>Food</option>
-                                                <option>Food</option>
-
+                                        <select className="drop" onChange={(e)=> setCategory(e.target.value)}>
+                                                <option>Drink</option>
+                                                <option>Fast Food</option>
+                                                <option>Mewa Jaat</option>
                                         </select>
                                 </div>
 

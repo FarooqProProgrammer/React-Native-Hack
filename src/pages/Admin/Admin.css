@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     border: 2px solid black;
-
+    position:relative;
 }
 
 .AdminInfo {
@@ -81,8 +81,8 @@
 
 .AllProduct {
     width: 100%;
-    height: 400px;
-    border: 2px solid black;
+    height: auto;
+    margin-top:10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -94,14 +94,14 @@
 .AllProduct .ProductOne {
     width: 90%;
     height: 90px;
-    border: 2px solid black;
+    border: 2px solid grey;
     position: relative;
 }
 
 .AllProduct .ProductOne .Image {
     width: 80px;
     height: 70px;
-    border: 2px solid black;
+    border: 2px solid grey;
     position: absolute;
     left: 2%;
     right: 57.44%;
@@ -237,6 +237,8 @@
     height: 80px;
     border: 2px solid black;
     display: flex;
+    position:absolute;
+    bottom:0;
 }
 
 .Navigation .NavICon {
