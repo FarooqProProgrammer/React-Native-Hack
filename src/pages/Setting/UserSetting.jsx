@@ -5,9 +5,18 @@ import { Button } from "@mui/material"
 import { AiOutlineShoppingCart, AiOutlineHome } from "react-icons/ai"
 import { MdAccountCircle } from "react-icons/md"
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../../config/db';
+import { signOut } from 'firebase/auth';
 
 export default function UserSetting() {
         const navigate = useNavigate();
+        const LOGOUT = () => {
+                signOut(auth).then(() => {
+                        navigate("/")
+                }).catch((error) => {
+                        // An error happened.
+                });
+        }
         return (
                 <div className="Login">
                         <div className="Setting">
@@ -29,7 +38,7 @@ export default function UserSetting() {
                                         <p className="OrderPrice">$185</p>
                                 </div>
 
-                                <button className="logout" >Logout</button>
+                                <button className="logout" onClick={LOGOUT} >Logout</button>
                                 <div className="bottomTab">
                                         <div className="tab">
                                                 <AiOutlineHome className='icon' onClick={() => navigate("/Home")}
