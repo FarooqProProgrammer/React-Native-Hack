@@ -2,8 +2,12 @@ import React from 'react';
 import "./Setting.css"
 import Ellipse from "../../assets/Ellipse.png"
 import { Button } from "@mui/material"
+import { AiOutlineShoppingCart, AiOutlineHome } from "react-icons/ai"
+import { MdAccountCircle } from "react-icons/md"
+import { useNavigate } from 'react-router-dom';
 
 export default function UserSetting() {
+        const navigate = useNavigate();
         return (
                 <div className="Login">
                         <div className="Setting">
@@ -25,7 +29,20 @@ export default function UserSetting() {
                                         <p className="OrderPrice">$185</p>
                                 </div>
 
-                                <Button className="logout">Logout</Button>
+                                <button className="logout" >Logout</button>
+                                <div className="bottomTab">
+                                        <div className="tab">
+                                                <AiOutlineHome className='icon' onClick={() => navigate("/Home")}
+                                                />
+                                        </div>
+                                        <div className="tab">
+                                                <AiOutlineShoppingCart onClick={() => navigate("/Cart")} className='icon' />
+                                        </div>
+                                        <div className="tab">
+                                                <MdAccountCircle onClick={() => navigate("/UserSetting")} className='icon' />
+                                        </div>
+
+                                </div>
                         </div>
                 </div>
         );

@@ -16,7 +16,7 @@
         left: 24px;
         top: 66px;
 
-        font-family: 'Inter';
+        font-family: "Inter";
         font-style: normal;
         font-weight: 700;
         font-size: 23px;
@@ -50,8 +50,13 @@
 
 .category {
     height: 60px;
-}
 
+    select {
+        width: 80%;
+        margin-left: 15px;
+        border-bottom: 1px solid grey;
+    }
+}
 
 .categoryImage {
     width: 100%;
@@ -61,7 +66,6 @@
     align-items: center;
 
     .CategoryOne {
-
         width: 100px;
         height: 70px;
 
@@ -73,33 +77,27 @@
         p {
             margin-left: 10px;
         }
-
     }
 }
 
-
 .ProductCard {
     width: 100%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    height: auto;
     align-items: center;
-    overflow-y: auto;
     margin-top: 20px;
-
-
+    gap: 10;
+    overflow: auto;
     .Product {
         width: 100%;
-        height: 200px;
+        height: 100px;
         position: relative;
 
         .imageProduct {
             position: absolute;
             width: 65px;
             height: 62px;
-            top: 2px;
-            left: 4px;
+            top: 6px;
+            left: 6px;
 
             img {
                 width: 100%;
@@ -111,23 +109,26 @@
             position: absolute;
             width: 106px;
             height: 25px;
-            left: 150px;
+            top: 5px;
+            left: 110px;
+            font-size: 17px;
+            font-weight: bold;
         }
 
         .desc {
             position: absolute;
             left: 34.88%;
             right: 9.3%;
-            top: 62.34%;
+            top: 32.34%;
             bottom: 34.44%;
+            font-size: 16px;
         }
 
         .Price {
             position: absolute;
             width: 106px;
             height: 25px;
-            right: 0;
-
+            left: 260px;
         }
 
         .icon {
@@ -140,15 +141,31 @@
             justify-content: center;
             align-items: center;
             bottom: 33.37%;
-            background: #61B846;
-            border-radius: 10px;
+            background: #61b846;
+            border-radius: 5px;
 
-            p{
-                font-size:30px;
-                color:white;
-                margin-top:4px;
+            p {
+                font-size: 30px;
+                color: white;
+                margin-top: 4px;
             }
         }
     }
+}
 
+
+.bottomTab{
+    width: 100%;
+    height:100px;
+    background-color: #fff;
+    display: flex;
+    .tab {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon {
+            font-size: 25px;
+        }
+    }
 }

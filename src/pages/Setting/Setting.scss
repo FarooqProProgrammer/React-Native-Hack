@@ -61,6 +61,7 @@
             line-height: 25px;
             color: #000000;
         }
+
         .number {
             position: absolute;
             left: 59.3%;
@@ -75,6 +76,7 @@
             text-align: right;
             color: #000000;
         }
+
         .Items {
             position: absolute;
             left: 12.56%;
@@ -88,6 +90,7 @@
             line-height: 12px;
             color: #BFBFBF;
         }
+
         .Total {
             position: absolute;
             width: 37px;
@@ -102,8 +105,9 @@
             font-size: 15px;
             line-height: 25px;
             color: #000000;
-        
+
         }
+
         .OrderPrice {
             position: absolute;
             width: 64px;
@@ -118,12 +122,39 @@
             font-size: 15px;
             line-height: 25px;
             color: #61B846;
-        
+
         }
     }
+
     .logout {
-        position:absolute;
-        bottom:0;
-        left:42%;
+        position: absolute;
+        width: 80%;
+        height: 60px;
+        background-color: #61B846;
+        color: #fff;
+        border-radius: 10px;
+        font-size: 27px;
+        top: 380px;
+        left: 12%;
+    }
+
+    .bottomTab {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background-color: #fff;
+        display: flex;
+
+        .tab {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .icon {
+                font-size: 25px;
+            }
+        }
     }
 }

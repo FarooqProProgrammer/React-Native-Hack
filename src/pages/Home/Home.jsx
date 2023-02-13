@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { AiOutlineShoppingCart, AiFillFolderAdd } from "react-icons/ai"
-// import Grocery from "../assests/Grocery.png"
+import { AiOutlineShoppingCart, AiOutlineHome } from "react-icons/ai"
 import "./Home.css"
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { db } from '../../config/db';
 import { add } from '../../Store/cartSlice';
-
+import { IconButton } from '@mui/material';
+import { MdAccountCircle } from "react-icons/md"
 
 function Home() {
     const [data, setData] = useState([]);
@@ -58,20 +58,12 @@ function Home() {
             </div>
 
             <div className="category w-100 ">
-                <p>Shop By Category</p>
-            </div>
+                <select>
+                    <option>Drink</option>
+                    <option>Fast Food</option>
+                    <option>Halwa</option>
 
-            <div className="categoryImage">
-                <div className="CategoryOne">
-                    <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdyb2Nlcnl8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" />
-                </div>
-                <div className="CategoryOne">
-                    <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdyb2Nlcnl8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" />
-                </div>
-                <div className="CategoryOne">
-                    <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdyb2Nlcnl8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" />
-                </div>
-
+                </select>
             </div>
 
             <div className="ProductCard">
@@ -84,18 +76,29 @@ function Home() {
                             <div className="imageTitle">{item.name}</div>
                             <div className="desc">{item.Product_Dsce}</div>
                             <div className="Price">{item.ProductPrice}</div>
-                            <div className="icon">
+                            <IconButton className="icon">
                                 <p>+</p>
-                            </div>
+                            </IconButton>
+
                         </div>
                     )
                 })}
 
 
-
-
             </div>
 
+            <div className="bottomTab">
+                <div className="tab">
+                    <AiOutlineHome className='icon' />
+                </div>
+                <div className="tab">
+                    <AiOutlineShoppingCart onClick={()=> navigate("/Cart")} className='icon' />
+                </div>
+                <div className="tab">
+                    <MdAccountCircle onClick={()=> navigate("/UserSetting")} className='icon'/>
+                </div>
+
+            </div>
 
         </div>
     )
