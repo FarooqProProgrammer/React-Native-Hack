@@ -1,0 +1,10 @@
+.Email {
+    input {
+        border-bottom: 1px solid black;
+        outline: none;
+        &:focus {
+            outline: none;
+            border: none;
+        }
+    }
+}

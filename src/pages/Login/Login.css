@@ -1,0 +1,8 @@
+.Email input {
+    border-bottom: 1px solid black;
+    outline: none;
+}
+.Email input:focus {
+    outline: none;
+    border: none;
+}

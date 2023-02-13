@@ -1,0 +1,58 @@
+.Cart {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.Cart .Carticon {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.Cart .titleCart {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Cart .titleCart p {
+    font-size: 25px;
+    margin-top: 5px;
+}
+.Cart .CartProduct {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+}
+.Cart .CartProduct .Wrapper {
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Cart .CartProduct .Wrapper .img {
+    width: 70px;
+    height: 60px;
+    border: 2px solid black;
+}
+.Cart .CartProduct .Wrapper .img img {
+    width: 100%;
+    height: 100%;
+}
+.Cart .CartForm {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

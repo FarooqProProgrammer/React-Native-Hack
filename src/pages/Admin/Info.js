@@ -1,5 +1,5 @@
 import React from 'react';
-import "../Setting.css"
+import "../Setting/Setting.css"
 import Ellipse from "../../assets/Ellipse.png"
 import {Button} from "@mui/material"
 

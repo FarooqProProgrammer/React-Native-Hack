@@ -1,0 +1,7 @@
+.Register input {
+    border-bottom: 1px solid black;
+}
+.Register input:focus {
+    outline: none;
+    border: none;
+}
