@@ -5,14 +5,17 @@ import Delete from "../../assets/Delete.png"
 import { Box, Divider, Input, Button } from "@mui/material"
 import { useSelector, useDispatch } from 'react-redux'
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../../config/db"
+
+import {  db } from "../../config/db"
 import { add } from '../../Store/cartSlice'
+import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai"
+import { MdAccountCircle } from "react-icons/md"
+import { useNavigate } from 'react-router-dom'
 
 function Cart() {
 
     const dataProducts = useSelector((state) => state.cart);
-    // const [user,setUser] = useState();
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
     console.log(dataProducts);
@@ -133,6 +136,21 @@ function Cart() {
                 </Box>
 
 
+
+
+                <div className="bottomTab">
+                    <div className="tab">
+                        <AiOutlineHome className='icon' onClick={() => navigate("/Home")}
+                        />
+                    </div>
+                    <div className="tab">
+                        <AiOutlineShoppingCart onClick={() => navigate("/Cart")} className='icon' />
+                    </div>
+                    <div className="tab">
+                        <MdAccountCircle onClick={() => navigate("/UserSetting")} className='icon' />
+                    </div>
+
+                </div>
             </div>
 
 
