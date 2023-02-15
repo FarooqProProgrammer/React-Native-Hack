@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Setting.css"
 import Ellipse from "../../assets/Ellipse.png"
-import { Button } from "@mui/material"
+import { Box, Button, Typography } from "@mui/material"
 import { AiOutlineShoppingCart, AiOutlineHome } from "react-icons/ai"
 import { MdAccountCircle } from "react-icons/md"
 import { useNavigate } from 'react-router-dom';
@@ -18,41 +18,41 @@ export default function UserSetting() {
                 });
         }
         return (
-                <div className="Login">
-                        <div className="Setting">
-                                <div className="P">Setting</div>
-                                <div className="imgAvator">
+                <Box className="Login">
+                        <Box className="Setting">
+                                <Box className="P">Setting</Box>
+                                <Box className="imgAvator">
                                         <img src={Ellipse} />
-                                        <p>Farooq</p>
-                                </div>
+                                        <Typography>Farooq</Typography>
+                                </Box>
                                 <p>Orders</p>
 
-                                <div className="OrderWrapper">
-                                        <p>Title</p>
+                                <Box className="OrderWrapper">
+                                        <Typography>Title</Typography>
                                         <span>Just Pending</span>
                                         <span className="number">123456789</span>
-                                        <div className="Items">
+                                        <Box className="Items">
                                                 2x Items
-                                        </div>
-                                        <div className="Total">Total</div>
-                                        <p className="OrderPrice">$185</p>
-                                </div>
+                                        </Box>
+                                        <Box className="Total">Total</Box>
+                                        <Typography className="OrderPrice">$185</Typography>
+                                </Box>
 
-                                <button className="logout" onClick={LOGOUT} >Logout</button>
-                                <div className="bottomTab">
-                                        <div className="tab">
+                                <Button className="logout" onClick={LOGOUT} >Logout</Button>
+                                <Box className="bottomTab">
+                                        <Box className="tab">
                                                 <AiOutlineHome className='icon' onClick={() => navigate("/Home")}
                                                 />
-                                        </div>
-                                        <div className="tab">
+                                        </Box>
+                                        <Box className="tab">
                                                 <AiOutlineShoppingCart onClick={() => navigate("/Cart")} className='icon' />
-                                        </div>
-                                        <div className="tab">
+                                        </Box>
+                                        <Box className="tab">
                                                 <MdAccountCircle onClick={() => navigate("/UserSetting")} className='icon' />
-                                        </div>
+                                        </Box>
 
-                                </div>
-                        </div>
-                </div>
+                                </Box>
+                        </Box>
+                </Box>
         );
 }

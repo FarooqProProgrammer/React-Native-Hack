@@ -6,15 +6,21 @@ import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { db } from '../../config/db';
 import { add } from '../../Store/cartSlice';
-import { IconButton } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import { MdAccountCircle } from "react-icons/md"
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
 
 function Home() {
     const [data, setData] = useState([]);
     const dispatch = useDispatch();
     const dataProducts = useSelector((state) => state.cart);
     const navigate = useNavigate();
-    const [InputFilter,setInputFilter] = useState([]);
+    const [InputFilter, setInputFilter] = useState([]);
 
     async function getData() {
         const q = query(collection(db, "Product"));
@@ -42,66 +48,75 @@ function Home() {
     }
 
     return (
-        <div className="Login">
+        <Box className="Login">
 
-            <div className="title">
+            <Box className="title">
                 <h4>Food</h4>
                 <p>{dataProducts.length}</p>
                 <AiOutlineShoppingCart size={30} onClick={() => navigate("/Cart")} />
-            </div>
+            </Box>
 
-            <div className="image">
+            <Box className="image">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JvY2VyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60" />
-            </div>
+            </Box>
 
-            <div className="search">
-                <input type="text" placeholder="Search Product" onChange={(e)=> setInputFilter({value:e.target.value,type:"Search"})} />
-            </div>
+            <Box className="search">
+                <input type="text" placeholder="Search Product" onChange={(e) => setInputFilter({ value: e.target.value, type: "Search" })} />
+            </Box>
 
-            <div className="category w-100 ">
-                <select onChange={(e)=> setInputFilter({value:e.target.value,type:"DropDown"})}>
+            <Box className="category w-100 ">
+                <select onChange={(e) => setInputFilter({ value: e.target.value, type: "DropDown" })}>
                     <option>Drink</option>
                     <option>Fast Food</option>
                     <option>Halwa</option>
 
                 </select>
-            </div>
+            </Box>
 
-            <div className="ProductCard">
-                {data.filter((item)=> InputFilter.type == "Search" ? item.name.includes(InputFilter.value) : item.category.includes(InputFilter.value)).map((item) => {
+            <Box className="ProductCard">
+                {data.filter((item) => InputFilter.type == "Search" ? item.name.includes(InputFilter.value) : item.category.includes(InputFilter.value)).map((item) => {
                     return (
-                        <div className="Product" onClick={() => AddProductDb(item)}>
-                            <div className="imageProduct">
-                                <img src={item.Product} />
-                            </div>
-                            <div className="imageTitle">{item.name}</div>
-                            <div className="desc">{item.Product_Dsce}</div>
-                            <div className="Price">{item.ProductPrice}</div>
-                            <IconButton className="icon">
-                                <p>+</p>
-                            </IconButton>
-
-                        </div>
+                        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                            <ListItem>
+                                <ListItemAvatar className='imageProduct'>
+                                
+                                        <img src={item.Product} weight={40} height={40} />
+                                   
+                                </ListItemAvatar>
+                                <ListItemText primary={item.name} secondary={item.Product_Dsce} />
+                                <ListItemText>{item.ProductPrice}</ListItemText>
+                                <Button className='btn'  onClick={()=> AddProductDb(item)}>
+                                        <AddIcon />
+                                </Button>
+                            </ListItem>
+                        </List>
                     )
                 })}
 
 
-            </div>
+            </Box>
 
             <div className="bottomTab">
                 <div className="tab">
+                    <IconButton>
                     <AiOutlineHome className='icon' />
+                    </IconButton>
                 </div>
                 <div className="tab">
-                    <AiOutlineShoppingCart onClick={()=> navigate("/Cart")} className='icon' />
+                <IconButton>
+                    <AiOutlineShoppingCart onClick={() => navigate("/Cart")} className='icon' />
+                    </IconButton>
                 </div>
                 <div className="tab">
-                    <MdAccountCircle onClick={()=> navigate("/UserSetting")} className='icon'/>
+                <IconButton>
+                    <MdAccountCircle onClick={() => navigate("/UserSetting")} className='icon' />
+
+                    </IconButton>
                 </div>
 
             </div>
 
-        </div>
+        </Box>
     )
 }
 

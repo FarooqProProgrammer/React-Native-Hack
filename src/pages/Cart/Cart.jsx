@@ -1,21 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import "./Cart.css"
 import Ellipse from "../../assets/Ellipse 4.png"
 import Delete from "../../assets/Delete.png"
-import { Box, Divider, Input, Button } from "@mui/material"
+import { Box, Divider, Input, Button, Typography } from "@mui/material"
 import { useSelector, useDispatch } from 'react-redux'
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
-
-import {  db } from "../../config/db"
+import { BsFillHandIndexThumbFill, BsFillHandThumbsDownFill } from "react-icons/bs"
+import { auth, db } from "../../config/db"
 import { add } from '../../Store/cartSlice'
 import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai"
 import { MdAccountCircle } from "react-icons/md"
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import { BiFoodMenu } from "react-icons/bi"
+import { onAuthStateChanged } from 'firebase/auth'
+
 
 function Cart() {
 
     const dataProducts = useSelector((state) => state.cart);
     const navigate = useNavigate();
+    const [user,setUser] = useState();
+    const MySwal = withReactContent(Swal)
 
     const dispatch = useDispatch();
     console.log(dataProducts);
@@ -24,7 +31,7 @@ function Cart() {
     const [EmailADD, setFullEmail] = useState();
     const [Phone, setPhone] = useState();
     const [Address, setAddress] = useState();
-    const [Quantity,setQuantity] = useState(0);
+    const [Quantity, setQuantity] = useState(0);
 
     const DeleteProdu = () => {
         dispatch(add([]))
@@ -40,11 +47,27 @@ function Cart() {
             Email: EmailADD,
             Phone: Phone,
             Address: Address,
+            user:user
         });
         console.log("Document written with ID: ", docRef.id);
 
         Upload()
 
+        MySwal.fire({
+            title: '<strong>Your  <u>Order</u> Has Successfully Placed</strong>',
+            icon: 'Success',
+            html:
+                '<b>Thanks For Shopping</b>, ',
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText:
+                <BsFillHandIndexThumbFill />,
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText:
+                <BsFillHandThumbsDownFill />,
+            cancelButtonAriaLabel: 'Thumbs down'
+        })
 
 
     }
@@ -68,33 +91,50 @@ function Cart() {
 
         }
     }
-    const addQuantity = (index) =>{
-            setQuantity(Quantity + 1)
-            console.log(dataProducts[index])
-            dataProducts[index].quantity = Quantity
+    const addQuantity = (index) => {
+        setQuantity(Quantity + 1)
+        console.log(dataProducts[index])
+        dataProducts[index].quantity = Quantity
     }
-    return (
-        <div className="Login">
 
-            <div className="Cart">
-                <div className="Carticon">
+
+    function userCheck(){
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const uid = user.uid;
+            console.log(uid);
+            setUser(uid)
+          } else {
+            // User is signed out
+            // ...
+          }
+        });
+      }
+      useEffect(()=>{
+        userCheck()
+      },[])
+    return (
+        <Box className="Login">
+
+            <Box className="Cart">
+                <Box className="Carticon">
                     <img src={Ellipse} />
-                </div>
-                <div className="titleCart">
+                </Box>
+                <Box className="titleCart">
                     <p>Shopping Cart</p>
                     <img src={Delete} onClick={DeleteProdu} />
-                </div>
-                <div className="CartProduct">
+                </Box>
+                <Box className="CartProduct">
                     {
-                        dataProducts.map((item,index) => {
+                        dataProducts.map((item, index) => {
                             return (
-                                <div className="Wrapper">
-                                    <div className="img">
+                                <Box className="Wrapper">
+                                    <Box className="img">
                                         <img src={item.Product} />
-                                    </div>
-                                    <div className="ProductName">{item.name}</div>
-                                    <div className="Pridce">Pkr {item.ProductPrice}</div>
-                                </div>
+                                    </Box>
+                                    <Box className="ProductName">{item.name}</Box>
+                                    <Box className="Pridce">Pkr {item.ProductPrice}</Box>
+                                </Box>
                             )
                         })
                     }
@@ -105,7 +145,7 @@ function Cart() {
 
 
 
-                </div>
+                </Box>
 
                 <hr />
 
@@ -122,24 +162,24 @@ function Cart() {
 
 
 
-                <div className="bottomTab">
-                    <div className="tab">
+                <Box className="bottomTab">
+                    <Box className="tab">
                         <AiOutlineHome className='icon' onClick={() => navigate("/Home")}
                         />
-                    </div>
-                    <div className="tab">
+                    </Box>
+                    <Box className="tab">
                         <AiOutlineShoppingCart onClick={() => navigate("/Cart")} className='icon' />
-                    </div>
-                    <div className="tab">
+                    </Box>
+                    <Box className="tab">
                         <MdAccountCircle onClick={() => navigate("/UserSetting")} className='icon' />
-                    </div>
+                    </Box>
 
-                </div>
-            </div>
+                </Box>
+            </Box>
 
 
 
-        </div>
+        </Box>
     )
 }
 

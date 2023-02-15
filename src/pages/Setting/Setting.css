@@ -1,143 +1,143 @@
 .Setting {
-    width: 100%;
-    height: 100%;
-    border: 2px solid black;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  position: relative;
 }
 .Setting .P {
-    width: 100%;
-    height: 50px;
-    border: 2px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 50px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .Setting .imgAvator {
-    width: 100%;
-    height: 120px;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 120px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .Setting .imgAvator img {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 .Setting .OrderWrapper {
-    width: 100%;
-    height: 100px;
-    position: relative;
-    border: 2px solid black;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  border: 2px solid black;
 }
 .Setting .OrderWrapper p {
-    position: absolute;
-    left: 12.09%;
-    right: 31.63%;
-    top: 10.02%;
-    bottom: 57.83%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 25px;
+  position: absolute;
+  left: 12.09%;
+  right: 31.63%;
+  top: 10.02%;
+  bottom: 57.83%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
 }
 .Setting .OrderWrapper span {
-    position: absolute;
-    left: 11.63%;
-    right: 32.33%;
-    top: 24.17%;
-    bottom: 55.69%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 25px;
-    color: #000000;
+  position: absolute;
+  left: 11.63%;
+  right: 32.33%;
+  top: 24.17%;
+  bottom: 55.69%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 25px;
+  color: #000000;
 }
 .Setting .OrderWrapper .number {
-    position: absolute;
-    left: 59.3%;
-    right: 13.49%;
-    top: 12.17%;
-    bottom: 55.69%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 25px;
-    text-align: right;
-    color: #000000;
+  position: absolute;
+  left: 59.3%;
+  right: 13.49%;
+  top: 12.17%;
+  bottom: 55.69%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 25px;
+  text-align: right;
+  color: #000000;
 }
 .Setting .OrderWrapper .Items {
-    position: absolute;
-    left: 12.56%;
-    right: 31.63%;
-    top: 45.28%;
-    bottom: 51.5%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 12px;
-    color: #BFBFBF;
+  position: absolute;
+  left: 12.56%;
+  right: 31.63%;
+  top: 45.28%;
+  bottom: 51.5%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: #BFBFBF;
 }
 .Setting .OrderWrapper .Total {
-    position: absolute;
-    width: 37px;
-    height: 25px;
-    left: 12.56%;
-    right: 31.63%;
-    top: 58.28%;
-    bottom: 51.5%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 25px;
-    color: #000000;
+  position: absolute;
+  width: 37px;
+  height: 25px;
+  left: 12.56%;
+  right: 31.63%;
+  top: 58.28%;
+  bottom: 51.5%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 25px;
+  color: #000000;
 }
 .Setting .OrderWrapper .OrderPrice {
-    position: absolute;
-    width: 64px;
-    height: 25px;
-    left: 80.56%;
-    right: 0%;
-    top: 58.28%;
-    bottom: 51.5%;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 25px;
-    color: #61B846;
+  position: absolute;
+  width: 64px;
+  height: 25px;
+  left: 80.56%;
+  right: 0%;
+  top: 58.28%;
+  bottom: 51.5%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 25px;
+  color: #61B846;
 }
 .Setting .logout {
-    position: absolute;
-    width: 80%;
-    height: 60px;
-    background-color: #61B846;
-    color: #fff;
-    border-radius: 10px;
-    font-size: 27px;
-    top: 380px;
-    left: 12%;
+  position: absolute;
+  width: 80%;
+  height: 60px;
+  background-color: #61B846;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 27px;
+  top: 380px;
+  left: 12%;
 }
 .Setting .bottomTab {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #fff;
-    display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  display: flex;
 }
 .Setting .bottomTab .tab {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .Setting .bottomTab .tab .icon {
-    font-size: 25px;
-}
+  font-size: 25px;
+}/*# sourceMappingURL=Setting.css.map */

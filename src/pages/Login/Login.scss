@@ -1,10 +1,38 @@
 .Email {
+    position: relative;
+
+    .title {
+        position: absolute;
+        bottom: 250px;
+        left: 60px;
+        color: #61B846;
+
+    }
+
     input {
         border-bottom: 1px solid black;
         outline: none;
+
         &:focus {
             outline: none;
             border: none;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        width: 80%;
+        background-color: #61B846;
+        color: white;
+        border: 1px solid #ffffff;
+
+        &:hover {
+            background-color: #fff;
+            color: #61B846;
+            border: 1px solid #61B846;
         }
     }
 }

@@ -5,7 +5,7 @@ import { auth, db } from "../../config/db"
 import { setDoc, doc } from "firebase/firestore"
 import { useNavigate } from "react-router-dom"
 import "./Signup.css"
-import { Input } from "@mui/material"
+import { Box, Button, Input, Typography } from "@mui/material"
 
 function Signup() {
   const [Name, setName] = useState("");
@@ -42,18 +42,18 @@ function Signup() {
     navigate("/")
   }
   return (
-    <div className="Login">
+    <Box className="Login">
 
-      <div className="Register" style={{ display: "flex", flexDirection: "column" }}>
+      <Box className="Register" style={{ display: "flex", flexDirection: "column" }}>
         <Input type="text" className="mb-2 mt-2" onChange={(e) => setName(e.target.value)} placeholder="Enter User Name" style={{ width: "80%", marginTop: 10, }} />
         <Input type="text" className="mb-2 mt-5" onChange={(e) => setContact(e.target.value)} placeholder="Enter Contact" style={{ width: "80%", marginTop: 10, }} />
         <Input type="text" className="mb-2 mt-5" onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email" style={{ width: "80%", marginTop: 10, }} />
         <Input type="text" className="mb-2 mt-5" onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" style={{ width: "80%", marginTop: 10, }} />
         <Link to="/">If you Have Account</Link>
 
-        <button onClick={AddItem} type="button" class="btn btn-primary w-[200px] border-none bg-[#61B846]  mt-2">Register</button>
-      </div>
-    </div>
+        <Button onClick={AddItem} type="button" class="btn btn-primary w-[200px] border-none bg-[#61B846]  mt-2">Register</Button>
+      </Box>
+    </Box>
   )
 }
 

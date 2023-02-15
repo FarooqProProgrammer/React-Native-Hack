@@ -1,7 +1,7 @@
 .Register input {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 .Register input:focus {
-    outline: none;
-    border: none;
-}
+  outline: none;
+  border: none;
+}/*# sourceMappingURL=Signup.css.map */

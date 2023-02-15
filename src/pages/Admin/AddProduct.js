@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { db, storage } from "../../config/db"
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore"
+import { Box, Input, Typography } from '@mui/material';
+
+
 export default function AddProduct() {
         let navigate = useNavigate();
         const [ProductName, setProductName] = useState();
@@ -31,57 +34,57 @@ export default function AddProduct() {
         }
 
         return (
-                <div className="Login">
-                        <div className="ProductInfo">
+                <Box className="Login">
+                        <Box className="ProductInfo">
 
 
-                                <div className="AdminInfo">
+                                <Box className="AdminInfo">
                                         <AiOutlineLeft className="icon" onClick={() => navigate(-1)} />
-                                        <div className="AdminImage">
+                                        <Box className="AdminImage">
                                                 <img src={Ellipse} />
-                                        </div>
-                                        <p>Admin</p>
+                                        </Box>
+                                        <Typography>Admin</Typography>
                                         <span className="Small">Admin</span>
-                                        <div className="iconList">
+                                        <Box className="iconList">
                                                 <AiOutlineUnorderedList size={35} />
-                                        </div>
-                                </div>
+                                        </Box>
+                                </Box>
 
 
 
-                                <input type="url" placeholder="Enter Product Url" className="AddProduct" onChange={(e) => setProductImage(e.target.value)} id="raised-button-file" />
+                                <Input type="url" placeholder="Enter Product Url" className="AddProduct" onChange={(e) => setProductImage(e.target.value)} id="raised-button-file" />
 
 
 
 
 
-                                <input type="text" className="inputName" onChange={(e) => setProductName(e.target.value)} placeholder="Input Name" />
+                                <Input type="text" className="inputName" onChange={(e) => setProductName(e.target.value)} placeholder="Input Name" />
 
-                                <div class="dropDown w-100">
+                                <Box class="dropDown w-100">
                                         <select className="drop" onChange={(e)=> setCategory(e.target.value)}>
                                                 <option>Drink</option>
                                                 <option>Fast Food</option>
                                                 <option>Mewa Jaat</option>
                                         </select>
-                                </div>
+                                </Box>
 
-                                <div className="discribe">
+                                <Box className="discribe">
                                         <textarea onChange={(e) => setProductDiscr(e.target.value)}>
 
                                         </textarea>
-                                </div>
-                                <div className="Unit">
+                                </Box>
+                                <Box className="Unit">
 
-                                        <input type="text" placeholder="Unit Name" onChange={(e) => setProductUnit(e.target.value)} />
-                                        <input type="text" placeholder="Unit Price" onChange={(e) => setProductPrice(e.target.value)} />
+                                        <Input type="text" placeholder="Unit Name" onChange={(e) => setProductUnit(e.target.value)} />
+                                        <Input type="text" placeholder="Unit Price" onChange={(e) => setProductPrice(e.target.value)} />
 
-                                </div>
+                                </Box>
 
                                 <button onClick={AddItem} className="AddProductBtn">Add Product</button>
 
 
 
-                        </div>
-                </div>
+                        </Box>
+                </Box>
         );
 }
