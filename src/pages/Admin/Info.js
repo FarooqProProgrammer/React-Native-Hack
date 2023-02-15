@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../Setting/Setting.css"
 import Ellipse from "../../assets/Ellipse.png"
 import { Box, Button, Typography } from "@mui/material"
@@ -10,6 +10,10 @@ import { signOut } from 'firebase/auth';
 
 export default function Info() {
         const navigate = useNavigate();
+        const [userID,setUserID] = useState(()=>{
+                return JSON.parse(localStorage.getItem("App"))
+
+        });
         const LOGOUT = () => {
                 signOut(auth).then(() => {
                         navigate("/")
@@ -17,13 +21,17 @@ export default function Info() {
                         // An error happened.
                 });
         }
+
+        useEffect(()=>{
+                console.log(userID)
+        },[])
         return (
                 <Box className="Login">
                         <Box className="Setting">
                                 <Box className="P">Setting</Box>
                                 <Box className="imgAvator">
                                         <img src={Ellipse} />
-                                        <Typography>Farooq</Typography>
+                                        <Typography>{userID.displayName}</Typography>
                                 </Box>
                                 <p>Orders</p>
 

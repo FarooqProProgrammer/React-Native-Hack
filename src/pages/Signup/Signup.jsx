@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../../config/db"
 import { setDoc, doc } from "firebase/firestore"
 import { useNavigate } from "react-router-dom"
 import "./Signup.css"
-import { Box, Button, Input, Typography } from "@mui/material"
+import { Box, Button, Input, Typography } from "@mui/material";
+
+
 
 function Signup() {
   const [Name, setName] = useState("");
@@ -39,6 +41,18 @@ function Signup() {
       Email: Email
     });
     console.log("Signp");
+
+
+    updateProfile(auth.currentUser, {
+      displayName:Name
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    });
+    
     navigate("/")
   }
   return (

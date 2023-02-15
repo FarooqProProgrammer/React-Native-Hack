@@ -14,21 +14,23 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 function Login() {
   const [Email, setEmail] = useState();
   const [password, setpassword] = useState();
+  const [navigation, setNavigation] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const SignIN = () => {
 
     if (Email === "admin@gmail.com") {
+      localStorage.setItem("App", JSON.stringify({ displayName: "Admin" }))
       navigate("/Admin")
       return;
     }
 
     signInWithEmailAndPassword(auth, Email, password)
       .then((userCredential) => {
-        // Signed in 
+
         const user = userCredential.user;
-        
+        localStorage.setItem("App", JSON.stringify(user))
         navigate("/Home")
 
       })
@@ -36,6 +38,7 @@ function Login() {
 
       });
   }
+
 
 
 

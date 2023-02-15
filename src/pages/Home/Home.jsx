@@ -74,13 +74,13 @@ function Home() {
             </Box>
 
             <Box className="ProductCard">
-                {data.filter((item) => InputFilter.type == "Search" ? item.name.includes(InputFilter.value) : item.category.includes(InputFilter.value)).map((item) => {
+                {data.filter((item) => InputFilter.type == "DropDown" ? item.category.includes(InputFilter.value) : item).map((item) => {
                     return (
                         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             <ListItem>
                                 <ListItemAvatar className='imageProduct'>
                                 
-                                        <img src={item.Product} weight={40} height={40} />
+                                        <img src={item.Product} weight={40} height={40} alt="Prduct Image"/>
                                    
                                 </ListItemAvatar>
                                 <ListItemText primary={item.name} secondary={item.Product_Dsce} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Setting.css"
 import Ellipse from "../../assets/Ellipse.png"
 import { Box, Button, Typography } from "@mui/material"
@@ -6,10 +6,15 @@ import { AiOutlineShoppingCart, AiOutlineHome } from "react-icons/ai"
 import { MdAccountCircle } from "react-icons/md"
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../config/db';
-import { signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default function UserSetting() {
         const navigate = useNavigate();
+        const [userID,setUserID] = useState(()=>{
+                return JSON.parse(localStorage.getItem("App"))
+
+        });
+
         const LOGOUT = () => {
                 signOut(auth).then(() => {
                         navigate("/")
@@ -17,13 +22,23 @@ export default function UserSetting() {
                         // An error happened.
                 });
         }
+
+        useEffect(()=>{
+
+               const data = JSON.parse(localStorage.getItem("App"));
+        //        console.log(data);
+               setUserID(data)
+               console.log(userID);
+        ;
+        },[true])
+
         return (
                 <Box className="Login">
                         <Box className="Setting">
                                 <Box className="P">Setting</Box>
                                 <Box className="imgAvator">
                                         <img src={Ellipse} />
-                                        <Typography>Farooq</Typography>
+                                        <Typography>{userID.displayName}</Typography>
                                 </Box>
                                 <p>Orders</p>
 

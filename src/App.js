@@ -15,6 +15,7 @@ import Signup from './pages/Signup/Signup';
 function App() {
 
 
+
   return (
     <div className="App">
       <div className="body">
@@ -29,8 +30,6 @@ function App() {
               <Route path="/Info" element={<Info />} />
               <Route path="/Cart" element={<Cart />} />
               <Route path="/UserSetting" element={<UserSetting />} />
-
-
             </Routes>
           </BrowserRouter>
         </Provider>
