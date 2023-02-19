@@ -14,6 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
+import { addPrice } from '../../Store/PriceSlice';
 
 function Home() {
     const [data, setData] = useState([]);
@@ -42,11 +43,12 @@ function Home() {
         getData();
         console.log(data)
     }, [])
-
-    async function AddProductDb(item) {
+    async function AddProductDb(item,price) {
+      
+        dispatch(addPrice(price))
         dispatch(add(item))
     }
-
+   
     return (
         <Box className="Login">
 
@@ -85,7 +87,7 @@ function Home() {
                                 </ListItemAvatar>
                                 <ListItemText primary={item.name} secondary={item.Product_Dsce} />
                                 <ListItemText>{item.ProductPrice}</ListItemText>
-                                <Button className='btn'  onClick={()=> AddProductDb(item)}>
+                                <Button className='btn'  onClick={()=> AddProductDb(item,item.ProductPrice)}>
                                         <AddIcon />
                                 </Button>
                             </ListItem>
