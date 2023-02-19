@@ -7,7 +7,7 @@ import Admin from "./pages/Admin/Admin"
 import AddProduct from "./pages/Admin/AddProduct"
 import Info from "./pages/Admin/Info"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import store from "./Store/store"
+import {store,persistor} from "./Store/store"
 import { Provider } from "react-redux";
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';

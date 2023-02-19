@@ -1,14 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from './cartSlice';
-import userReducer from "./userSlice"
-import PriceSlice from './PriceSlice';
+import { createStore } from 'redux'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import rootReducer from './rootReducer'
+  
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+ 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+let store = createStore(persistedReducer);
+let persistor = persistStore(store);
 
-const store = configureStore({
-    reducer: {
-        cart: cartReducer,
-        user:userReducer,
-        price:PriceSlice,
-    },
-});
-
-export default store;
+export {
+    store,
+    persistor
+}
+  

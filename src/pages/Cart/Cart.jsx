@@ -20,6 +20,23 @@ import { onAuthStateChanged } from 'firebase/auth'
 function Cart() {
 
     const dataProducts = useSelector((state) => state.cart);
+    const Price = useSelector((state)=> state.price);
+    const [price,setPrice] = useState();
+   
+
+    useEffect(()=>{
+        if(Price){
+            const sum = Price.reduce((partialSum, a) => +partialSum + +a);
+            console.log(sum)
+    
+            setPrice(sum)
+            return;
+        }
+        setPrice(0)
+       
+    },[Price])
+
+
     const navigate = useNavigate();
     const [user,setUser] = useState();
     const MySwal = withReactContent(Swal)
@@ -147,6 +164,10 @@ function Cart() {
 
                 </Box>
 
+                <Box className="w-full h-[40px] border-2 border-black flex justify-between items-center pl-3 pr-3">
+                    <Typography>Total Price</Typography>
+                    <Typography>{price}</Typography>
+                </Box>
                 <hr />
 
                 <Box className="CartForm">
